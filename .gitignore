@@ -1,0 +1,6 @@
+
+MainWindow(MySQL).py
+*.db
+test.py
+database.py
+__pycache__/
