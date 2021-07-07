@@ -150,10 +150,9 @@ class mainWindow(Frame):
         def submit():
             oldEnt = EntOldPass.get()
             newPass = EntNewPass.get()
-            print(newPass)
+            print(EntNewPass.get())
             if oldEnt == oldPass:
-                addQ = '''UPDATE master SET masterPass=(?) WHERE id =1'''
-                cur.execute(addQ, (EntNewPass.get()))
+                cur.execute("UPDATE master SET masterPass=(?) WHERE id =1", (newPass,))
                 conn.commit()
                 updateMaster.destroy()
             else:
