@@ -109,7 +109,55 @@ class mainWindow(Frame):
                 status.set("Password didn't match")
             
     def update_master(self):
-        pass
+        updateMaster = Tk()
+        updateMaster.title("Edit Master Account")
+        updateMaster.geometry("320x110")
+        updateMaster.resizable(False, False)
+
+        frame2 = Frame(updateMaster)
+        frame2.pack(fill=X, padx=5, pady=3)
+        lblOldPass = Label(frame2, text="Old Password ", width=16)
+        lblOldPass.pack(side=LEFT, padx=5)
+        EntOldPass = Entry(frame2, width=30, show='*')
+        EntOldPass.pack(side=LEFT, expand=True)
+
+        frame3 = Frame(updateMaster)
+        frame3.pack(fill=X, padx=5, pady=3)
+        lblNewPass = Label(frame3, text="New Password ", width=16)
+        lblNewPass.pack(side=LEFT, padx=5)
+        EntNewPass = Entry(frame3, width=30, show='*')
+        EntNewPass.pack(side=LEFT, expand=True)
+
+        frame4 = Frame(updateMaster)
+        frame4.pack(fill=X, padx=5, pady=3)
+        status = StringVar(updateMaster)
+        lblStatus = Label(frame4, textvariable=status, fg="red")
+        lblStatus.pack()
+
+        frame5 = Frame(updateMaster)
+        frame5.pack(fill="none", padx=5, pady=3, expand=True)
+        btnCancel = Button(frame5, text="Cancel", command=updateMaster.destroy)
+        btnCancel.pack(side=LEFT)
+        btnOK = Button(frame5, text="OK", command=lambda : submit())
+        btnOK.pack(side=RIGHT)
+
+        conn = sqlite3.connect(r"dbase.db")
+        cur = conn.cursor()
+        getQuery = cur.execute('''SELECT masterPass FROM master WHERE id=1''').fetchone()
+        oldPass = str(" ".join(getQuery))
+        print(oldPass)
+        
+        def submit():
+            oldEnt = EntOldPass.get()
+            newPass = EntNewPass.get()
+            print(newPass)
+            if oldEnt == oldPass:
+                addQ = '''UPDATE master SET masterPass=(?) WHERE id =1'''
+                cur.execute(addQ, (EntNewPass.get()))
+                conn.commit()
+                updateMaster.destroy()
+            else:
+                status.set("Old Password Wrong!")
 
     def push_master(self):
         pass
@@ -280,7 +328,7 @@ class mainWindow(Frame):
         editMenu.add_separator()
         editMenu.add_command(label="Copy Username", command=self.get_username)
         editMenu.add_command(label="Copy Password", command=self.get_password)
-        editMenu.add_command(label="Change Master Password")
+        editMenu.add_command(label="Change Master Password", command=self.update_master)
 
         # View menu
         helpMenu = tk.Menu(self.menubar)
