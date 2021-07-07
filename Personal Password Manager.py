@@ -39,7 +39,7 @@ class mainWindow(Frame):
             self.conn = sqlite3.connect(r"dbase.db")
             self.cur = self.conn.cursor()
         except Error as e:
-            print(e)
+            messagebox.askquestion("Database Error", e)
             quit()
 
     def check_credential(self):
@@ -145,12 +145,10 @@ class mainWindow(Frame):
         cur = conn.cursor()
         getQuery = cur.execute('''SELECT masterPass FROM master WHERE id=1''').fetchone()
         oldPass = str(" ".join(getQuery))
-        print(oldPass)
         
         def submit():
             oldEnt = EntOldPass.get()
             newPass = EntNewPass.get()
-            print(EntNewPass.get())
             if oldEnt == oldPass:
                 cur.execute("UPDATE master SET masterPass=(?) WHERE id =1", (newPass,))
                 conn.commit()
@@ -263,7 +261,6 @@ class mainWindow(Frame):
         treeCursor = self.recordDB.selection()
         getExstUsrnm = '''SELECT username FROM digital_identity WHERE id =(?)'''
         execExstUsrnm = self.cur.execute(getExstUsrnm, self.recordDB.set(treeCursor, '#1')).fetchone()
-        print(" ".join(execExstUsrnm))
         self.master.clipboard_clear()
         self.master.clipboard_append(" ".join(execExstUsrnm))
 
@@ -271,7 +268,6 @@ class mainWindow(Frame):
         treeCursor = self.recordDB.selection()
         getPassword = '''SELECT password FROM digital_identity WHERE id =(?)'''
         execPassword = self.cur.execute(getPassword, self.recordDB.set(treeCursor, '#1')).fetchone()
-        print(" ".join(execPassword))
         self.master.clipboard_clear()
         self.master.clipboard_append(" ".join(execPassword))
 

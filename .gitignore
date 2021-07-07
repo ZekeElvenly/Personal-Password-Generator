@@ -6,18 +6,3 @@ database.py
 __pycache__/
 MainWindow.spec
 Personal Password Generator.tar.gz
-build/MainWindow/Analysis-00.toc
-build/MainWindow/base_library.zip
-build/MainWindow/COLLECT-00.toc
-build/MainWindow/EXE-00.toc
-build/MainWindow/MainWindow
-build/MainWindow/PKG-00.pkg
-build/MainWindow/PKG-00.toc
-build/MainWindow/PYZ-00.pyz
-build/MainWindow/PYZ-00.toc
-build/MainWindow/Tree-00.toc
-build/MainWindow/Tree-01.toc
-build/MainWindow/Tree-02.toc
-build/MainWindow/warn-MainWindow.txt
-build/MainWindow/xref-MainWindow.html
-build/MainWindow/localpycos/struct.pyo
