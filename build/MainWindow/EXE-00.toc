@@ -1,5 +1,5 @@
 ('/home/dicky/PythonProjects/Personal Password '
- 'Generator/build/MainWindow/MainWindow',
+ 'Generator/build/MainWindow/Personal Password Manager',
  True,
  False,
  True,
@@ -9,7 +9,7 @@
  False,
  None,
  True,
- 'MainWindow.pkg',
+ 'Personal Password Manager.pkg',
  [('PYZ-00.pyz',
    '/home/dicky/PythonProjects/Personal Password '
    'Generator/build/MainWindow/PYZ-00.pyz',
@@ -48,7 +48,7 @@
  [],
  False,
  False,
- 1625661885,
+ 1625664756,
  [('run',
    '/home/dicky/.local/lib/python3.8/site-packages/PyInstaller/bootloader/Linux-64bit/run',
    'EXECUTABLE')])
