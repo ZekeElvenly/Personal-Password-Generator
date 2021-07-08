@@ -48,8 +48,8 @@ class mainWindow(Frame):
         if check.fetchone():
             self.conn.close()
         else:
-            createMstrDialog = messagebox.askyesno('Create Master User', r'No master account created, would you like to make in order to use this app?')
-            if createMstrDialog == 'yes' or 'YES':
+            createMstrDialog = messagebox.askquestion('Create Master User', r'No master account created, would you like to make in order to use this app?')
+            if createMstrDialog == 'yes':
                 self.create_master() 
             else:
                 self.master.destroy()
@@ -155,9 +155,6 @@ class mainWindow(Frame):
                 updateMaster.destroy()
             else:
                 status.set("Old Password Wrong!")
-
-    def push_master(self):
-        pass
 
     def Login(self):
         '''Login Frame'''
