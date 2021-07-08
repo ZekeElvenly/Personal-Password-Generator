@@ -5,3 +5,4 @@ database.py
 __pycache__/
 Personal Password Generator.tar.gz
 *.spec
+build/
