@@ -483,7 +483,7 @@ class mainWindow(Frame):
     
     def data_finder(self):
         finder = self.inpFinder.get()
-        fndQuery = ("SELECT * FROM digital_identity WHERE INSTR(name, (?))>0")
+        fndQuery = ("SELECT id, username, desc, date_modified FROM digital_identity WHERE INSTR(name, (?))>0")
         self.cur.execute(fndQuery, (finder,))
         rows = self.cur.fetchall()
         for data in self.recordDB.get_children():
