@@ -1,0 +1,330 @@
+4797 INFO: PyInstaller: 4.3
+4797 INFO: Python: 3.8.8 (conda)
+4877 INFO: Platform: Linux-5.3.0-64-generic-x86_64-with-glibc2.10
+4878 DEBUG: Testing for UPX ...
+4889 INFO: UPX is not available.
+4893 DEBUG: script: MainWindow.py
+4893 INFO: Extending PYTHONPATH with paths
+['/home/dicky/PythonProjects/Personal Password Manager',
+ '/home/dicky/PythonProjects/Personal Password Generator']
+7379 INFO: checking Analysis
+7453 INFO: Building because pathex changed
+7453 INFO: Initializing module dependency graph...
+7499 INFO: Caching module graph hooks...
+7645 INFO: Analyzing base_library.zip ...
+7646 DEBUG: Collecting submodules for encodings
+7785 DEBUG: collect_submodules - Found submodules: {'encodings.koi8_r', 'encodings.cp861', 'encodings.cp720', 'encodings.aliases', 'encodings.cp1250', 'encodings.cp1255', 'encodings.iso8859_10', 'encodings.cp437', 'encodings.cp1254', 'encodings.iso8859_6', 'encodings.cp857', 'encodings.utf_16_le', 'encodings.utf_7', 'encodings.cp775', 'encodings.iso2022_jp_1', 'encodings.iso2022_jp_ext', 'encodings.base64_codec', 'encodings.mac_iceland', 'encodings.iso8859_16', 'encodings.tis_620', 'encodings.koi8_u', 'encodings.cp949', 'encodings.shift_jisx0213', 'encodings.mac_roman', 'encodings.cp273', 'encodings.iso8859_15', 'encodings.iso8859_8', 'encodings.shift_jis_2004', 'encodings.undefined', 'encodings.ascii', 'encodings.mac_romanian', 'encodings.euc_jis_2004', 'encodings.zlib_codec', 'encodings.cp932', 'encodings.iso8859_1', 'encodings.bz2_codec', 'encodings.rot_13', 'encodings.cp860', 'encodings.iso8859_2', 'encodings.iso8859_9', 'encodings.unicode_escape', 'encodings.cp037', 'encodings.koi8_t', 'encodings.gb18030', 'encodings.utf_32_be', 'encodings.cp856', 'encodings.mac_latin2', 'encodings.cp866', 'encodings.hex_codec', 'encodings.iso8859_7', 'encodings.quopri_codec', 'encodings.utf_16', 'encodings.euc_jp', 'encodings.cp864', 'encodings.cp1258', 'encodings.mac_arabic', 'encodings.iso2022_jp_3', 'encodings.iso8859_11', 'encodings.cp1006', 'encodings.idna', 'encodings.mac_farsi', 'encodings.iso2022_kr', 'encodings.kz1048', 'encodings.euc_jisx0213', 'encodings.cp869', 'encodings.ptcp154', 'encodings.uu_codec', 'encodings.shift_jis', 'encodings.palmos', 'encodings.big5hkscs', 'encodings.oem', 'encodings.latin_1', 'encodings.cp852', 'encodings.cp424', 'encodings.cp1256', 'encodings.cp1125', 'encodings.mac_turkish', 'encodings.cp1026', 'encodings.johab', 'encodings.gb2312', 'encodings.big5', 'encodings.cp1251', 'encodings.iso2022_jp_2004', 'encodings.iso8859_5', 'encodings.mac_centeuro', 'encodings.utf_8_sig', 'encodings.iso2022_jp', 'encodings.mac_croatian', 'encodings.cp850', 'encodings.cp1252', 'encodings.cp863', 'encodings.mac_greek', 'encodings.cp865', 'encodings.utf_8', 'encodings.iso8859_3', 'encodings.cp737', 'encodings.cp875', 'encodings.gbk', 'encodings.mac_cyrillic', 'encodings', 'encodings.cp1257', 'encodings.cp855', 'encodings.punycode', 'encodings.iso8859_13', 'encodings.cp874', 'encodings.iso8859_14', 'encodings.utf_32_le', 'encodings.iso8859_4', 'encodings.euc_kr', 'encodings.cp1253', 'encodings.iso2022_jp_2', 'encodings.cp862', 'encodings.charmap', 'encodings.cp500', 'encodings.mbcs', 'encodings.hz', 'encodings.cp1140', 'encodings.cp950', 'encodings.utf_32', 'encodings.raw_unicode_escape', 'encodings.cp858', 'encodings.utf_16_be', 'encodings.hp_roman8'}
+7790 DEBUG: Collecting submodules for collections
+7917 DEBUG: collect_submodules - Found submodules: {'collections', 'collections.abc'}
+18213 INFO: Processing pre-find module path hook distutils from '/home/dicky/.local/lib/python3.8/site-packages/PyInstaller/hooks/pre_find_module_path/hook-distutils.py'.
+18238 INFO: distutils: retargeting to non-venv dir '/opt/anaconda3/lib/python3.8'
+32067 INFO: Caching module dependency graph...
+32427 DEBUG: Adding python files to base_library.zip
+32701 INFO: running Analysis Analysis-00.toc
+32701 DEBUG: Analyzing /opt/anaconda3/bin/python3.8
+32796 DEBUG: Skipping libm.so.6 dependency of python3.8
+32796 DEBUG: Skipping libpthread.so.0 dependency of python3.8
+32797 DEBUG: Skipping libc.so.6 dependency of python3.8
+32797 DEBUG: Skipping libdl.so.2 dependency of python3.8
+32797 DEBUG: Skipping librt.so.1 dependency of python3.8
+32797 DEBUG: Skipping libutil.so.1 dependency of python3.8
+32798 INFO: Analyzing MainWindow.py
+33275 DEBUG: Hidden import 'codecs' already found
+33275 INFO: Processing module hooks...
+33278 INFO: Loading module hook 'hook-xml.py' from '/home/dicky/.local/lib/python3.8/site-packages/PyInstaller/hooks'...
+33696 INFO: Loading module hook 'hook-multiprocessing.util.py' from '/home/dicky/.local/lib/python3.8/site-packages/PyInstaller/hooks'...
+33714 DEBUG: Excluding import of test.support from module multiprocessing.util
+33714 DEBUG: Excluding import of test from module multiprocessing.util
+33715 INFO: Loading module hook 'hook-xml.etree.cElementTree.py' from '/home/dicky/.local/lib/python3.8/site-packages/PyInstaller/hooks'...
+33720 INFO: Loading module hook 'hook-lib2to3.py' from '/home/dicky/.local/lib/python3.8/site-packages/PyInstaller/hooks'...
+33730 DEBUG: Collecting data files for lib2to3
+33829 DEBUG: collect_data_files - Found files: [('/opt/anaconda3/lib/python3.8/lib2to3/PatternGrammar3.8.8.final.0.pickle', 'lib2to3'), ('/opt/anaconda3/lib/python3.8/lib2to3/tests/data/README', 'lib2to3/tests/data'), ('/opt/anaconda3/lib/python3.8/lib2to3/Grammar3.8.8.final.0.pickle', 'lib2to3'), ('/opt/anaconda3/lib/python3.8/lib2to3/Grammar.txt', 'lib2to3'), ('/opt/anaconda3/lib/python3.8/lib2to3/PatternGrammar.txt', 'lib2to3')]
+33830 INFO: Loading module hook 'hook-distutils.util.py' from '/home/dicky/.local/lib/python3.8/site-packages/PyInstaller/hooks'...
+33840 DEBUG: Excluding import of lib2to3.refactor from module distutils.util
+33840 INFO: Loading module hook 'hook-heapq.py' from '/home/dicky/.local/lib/python3.8/site-packages/PyInstaller/hooks'...
+33844 DEBUG: Excluding import of doctest from module heapq
+33844 INFO: Loading module hook 'hook-sqlite3.py' from '/home/dicky/.local/lib/python3.8/site-packages/PyInstaller/hooks'...
+33846 DEBUG: Collecting submodules for sqlite3
+33995 DEBUG: collect_submodules - Found submodules: {'sqlite3.dbapi2', 'sqlite3', 'sqlite3.dump'}
+34027 INFO: Loading module hook 'hook-sysconfig.py' from '/home/dicky/.local/lib/python3.8/site-packages/PyInstaller/hooks'...
+34063 INFO: Loading module hook 'hook-_tkinter.py' from '/home/dicky/.local/lib/python3.8/site-packages/PyInstaller/hooks'...
+34193 DEBUG: Skipping libm.so.6 dependency of _tkinter.cpython-38-x86_64-linux-gnu.so
+34194 DEBUG: Skipping libpthread.so.0 dependency of _tkinter.cpython-38-x86_64-linux-gnu.so
+34194 DEBUG: Skipping libxcb.so.1 dependency of _tkinter.cpython-38-x86_64-linux-gnu.so
+34194 DEBUG: Adding libXau.so.6 dependency of _tkinter.cpython-38-x86_64-linux-gnu.so from /lib/x86_64-linux-gnu/libXau.so.6
+34194 DEBUG: Skipping libdl.so.2 dependency of _tkinter.cpython-38-x86_64-linux-gnu.so
+34194 DEBUG: Skipping libc.so.6 dependency of _tkinter.cpython-38-x86_64-linux-gnu.so
+34194 DEBUG: Adding libtk8.6.so dependency of _tkinter.cpython-38-x86_64-linux-gnu.so from /opt/anaconda3/lib/python3.8/lib-dynload/../../libtk8.6.so
+34194 DEBUG: Adding libtcl8.6.so dependency of _tkinter.cpython-38-x86_64-linux-gnu.so from /opt/anaconda3/lib/python3.8/lib-dynload/../../libtcl8.6.so
+34194 DEBUG: Adding libX11.so.6 dependency of _tkinter.cpython-38-x86_64-linux-gnu.so from /lib/x86_64-linux-gnu/libX11.so.6
+34195 DEBUG: Adding libz.so.1 dependency of _tkinter.cpython-38-x86_64-linux-gnu.so from /opt/anaconda3/lib/python3.8/lib-dynload/../.././libz.so.1
+34572 INFO: checking Tree
+34664 INFO: checking Tree
+34823 INFO: checking Tree
+34839 INFO: Loading module hook 'hook-pickle.py' from '/home/dicky/.local/lib/python3.8/site-packages/PyInstaller/hooks'...
+34859 DEBUG: Excluding import of argparse from module pickle
+34860 INFO: Loading module hook 'hook-encodings.py' from '/home/dicky/.local/lib/python3.8/site-packages/PyInstaller/hooks'...
+34867 DEBUG: Collecting submodules for encodings
+35006 DEBUG: collect_submodules - Found submodules: {'encodings.koi8_r', 'encodings.cp861', 'encodings.cp720', 'encodings.aliases', 'encodings.cp1250', 'encodings.cp1255', 'encodings.iso8859_10', 'encodings.cp437', 'encodings.cp1254', 'encodings.iso8859_6', 'encodings.cp857', 'encodings.utf_16_le', 'encodings.utf_7', 'encodings.cp775', 'encodings.iso2022_jp_1', 'encodings.iso2022_jp_ext', 'encodings.base64_codec', 'encodings.mac_iceland', 'encodings.iso8859_16', 'encodings.tis_620', 'encodings.koi8_u', 'encodings.cp949', 'encodings.shift_jisx0213', 'encodings.mac_roman', 'encodings.cp273', 'encodings.iso8859_15', 'encodings.iso8859_8', 'encodings.shift_jis_2004', 'encodings.undefined', 'encodings.ascii', 'encodings.mac_romanian', 'encodings.euc_jis_2004', 'encodings.zlib_codec', 'encodings.cp932', 'encodings.iso8859_1', 'encodings.bz2_codec', 'encodings.rot_13', 'encodings.cp860', 'encodings.iso8859_2', 'encodings.iso8859_9', 'encodings.unicode_escape', 'encodings.cp037', 'encodings.koi8_t', 'encodings.gb18030', 'encodings.utf_32_be', 'encodings.cp856', 'encodings.mac_latin2', 'encodings.cp866', 'encodings.hex_codec', 'encodings.iso8859_7', 'encodings.quopri_codec', 'encodings.utf_16', 'encodings.euc_jp', 'encodings.cp864', 'encodings.cp1258', 'encodings.mac_arabic', 'encodings.iso2022_jp_3', 'encodings.iso8859_11', 'encodings.cp1006', 'encodings.idna', 'encodings.mac_farsi', 'encodings.iso2022_kr', 'encodings.kz1048', 'encodings.euc_jisx0213', 'encodings.cp869', 'encodings.ptcp154', 'encodings.uu_codec', 'encodings.shift_jis', 'encodings.palmos', 'encodings.big5hkscs', 'encodings.oem', 'encodings.latin_1', 'encodings.cp852', 'encodings.cp424', 'encodings.cp1256', 'encodings.cp1125', 'encodings.mac_turkish', 'encodings.cp1026', 'encodings.johab', 'encodings.gb2312', 'encodings.big5', 'encodings.cp1251', 'encodings.iso2022_jp_2004', 'encodings.iso8859_5', 'encodings.mac_centeuro', 'encodings.utf_8_sig', 'encodings.iso2022_jp', 'encodings.mac_croatian', 'encodings.cp850', 'encodings.cp1252', 'encodings.cp863', 'encodings.mac_greek', 'encodings.cp865', 'encodings.utf_8', 'encodings.iso8859_3', 'encodings.cp737', 'encodings.cp875', 'encodings.gbk', 'encodings.mac_cyrillic', 'encodings', 'encodings.cp1257', 'encodings.cp855', 'encodings.punycode', 'encodings.iso8859_13', 'encodings.cp874', 'encodings.iso8859_14', 'encodings.utf_32_le', 'encodings.iso8859_4', 'encodings.euc_kr', 'encodings.cp1253', 'encodings.iso2022_jp_2', 'encodings.cp862', 'encodings.charmap', 'encodings.cp500', 'encodings.mbcs', 'encodings.hz', 'encodings.cp1140', 'encodings.cp950', 'encodings.utf_32', 'encodings.raw_unicode_escape', 'encodings.cp858', 'encodings.utf_16_be', 'encodings.hp_roman8'}
+35036 INFO: Loading module hook 'hook-distutils.py' from '/home/dicky/.local/lib/python3.8/site-packages/PyInstaller/hooks'...
+35039 INFO: Loading module hook 'hook-difflib.py' from '/home/dicky/.local/lib/python3.8/site-packages/PyInstaller/hooks'...
+35045 DEBUG: Excluding import of doctest from module difflib
+35088 DEBUG: Looking for egg data files...
+35089 INFO: Looking for ctypes DLLs
+35089 DEBUG: Scanning test.support for shared libraries or dlls
+35199 DEBUG: Scanning multiprocessing.sharedctypes for shared libraries or dlls
+35209 INFO: Analyzing run-time hooks ...
+35220 INFO: Including run-time hook '/home/dicky/.local/lib/python3.8/site-packages/PyInstaller/hooks/rthooks/pyi_rth_multiprocessing.py'
+35236 INFO: Including run-time hook '/home/dicky/.local/lib/python3.8/site-packages/PyInstaller/hooks/rthooks/pyi_rth__tkinter.py'
+35286 INFO: Looking for dynamic libraries
+35287 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/math.cpython-38-x86_64-linux-gnu.so
+35330 DEBUG: Skipping libm.so.6 dependency of math.cpython-38-x86_64-linux-gnu.so
+35331 DEBUG: Skipping libc.so.6 dependency of math.cpython-38-x86_64-linux-gnu.so
+35331 DEBUG: Skipping libpthread.so.0 dependency of math.cpython-38-x86_64-linux-gnu.so
+35331 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/select.cpython-38-x86_64-linux-gnu.so
+35378 DEBUG: Skipping libc.so.6 dependency of select.cpython-38-x86_64-linux-gnu.so
+35379 DEBUG: Skipping libpthread.so.0 dependency of select.cpython-38-x86_64-linux-gnu.so
+35379 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_posixsubprocess.cpython-38-x86_64-linux-gnu.so
+35425 DEBUG: Skipping libc.so.6 dependency of _posixsubprocess.cpython-38-x86_64-linux-gnu.so
+35426 DEBUG: Skipping libpthread.so.0 dependency of _posixsubprocess.cpython-38-x86_64-linux-gnu.so
+35426 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_struct.cpython-38-x86_64-linux-gnu.so
+35475 DEBUG: Skipping libc.so.6 dependency of _struct.cpython-38-x86_64-linux-gnu.so
+35476 DEBUG: Skipping libpthread.so.0 dependency of _struct.cpython-38-x86_64-linux-gnu.so
+35476 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/unicodedata.cpython-38-x86_64-linux-gnu.so
+35540 DEBUG: Skipping libc.so.6 dependency of unicodedata.cpython-38-x86_64-linux-gnu.so
+35540 DEBUG: Skipping libpthread.so.0 dependency of unicodedata.cpython-38-x86_64-linux-gnu.so
+35541 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_socket.cpython-38-x86_64-linux-gnu.so
+35588 DEBUG: Skipping libc.so.6 dependency of _socket.cpython-38-x86_64-linux-gnu.so
+35589 DEBUG: Skipping libpthread.so.0 dependency of _socket.cpython-38-x86_64-linux-gnu.so
+35589 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_random.cpython-38-x86_64-linux-gnu.so
+35635 DEBUG: Skipping libc.so.6 dependency of _random.cpython-38-x86_64-linux-gnu.so
+35636 DEBUG: Skipping libpthread.so.0 dependency of _random.cpython-38-x86_64-linux-gnu.so
+35637 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_ssl.cpython-38-x86_64-linux-gnu.so
+35683 DEBUG: Skipping libpthread.so.0 dependency of _ssl.cpython-38-x86_64-linux-gnu.so
+35684 DEBUG: Adding libssl.so.1.1 dependency of _ssl.cpython-38-x86_64-linux-gnu.so from /opt/anaconda3/lib/python3.8/lib-dynload/../../libssl.so.1.1
+35684 DEBUG: Skipping libdl.so.2 dependency of _ssl.cpython-38-x86_64-linux-gnu.so
+35684 DEBUG: Skipping libc.so.6 dependency of _ssl.cpython-38-x86_64-linux-gnu.so
+35685 DEBUG: Adding libcrypto.so.1.1 dependency of _ssl.cpython-38-x86_64-linux-gnu.so from /opt/anaconda3/lib/python3.8/lib-dynload/../../libcrypto.so.1.1
+35685 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_asyncio.cpython-38-x86_64-linux-gnu.so
+35743 DEBUG: Skipping libc.so.6 dependency of _asyncio.cpython-38-x86_64-linux-gnu.so
+35744 DEBUG: Skipping libpthread.so.0 dependency of _asyncio.cpython-38-x86_64-linux-gnu.so
+35744 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_contextvars.cpython-38-x86_64-linux-gnu.so
+35804 DEBUG: Skipping libc.so.6 dependency of _contextvars.cpython-38-x86_64-linux-gnu.so
+35805 DEBUG: Skipping libpthread.so.0 dependency of _contextvars.cpython-38-x86_64-linux-gnu.so
+35805 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_queue.cpython-38-x86_64-linux-gnu.so
+35850 DEBUG: Skipping libc.so.6 dependency of _queue.cpython-38-x86_64-linux-gnu.so
+35851 DEBUG: Skipping libpthread.so.0 dependency of _queue.cpython-38-x86_64-linux-gnu.so
+35851 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/mmap.cpython-38-x86_64-linux-gnu.so
+35905 DEBUG: Skipping libc.so.6 dependency of mmap.cpython-38-x86_64-linux-gnu.so
+35906 DEBUG: Skipping libpthread.so.0 dependency of mmap.cpython-38-x86_64-linux-gnu.so
+35906 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_posixshmem.cpython-38-x86_64-linux-gnu.so
+35964 DEBUG: Skipping libc.so.6 dependency of _posixshmem.cpython-38-x86_64-linux-gnu.so
+35965 DEBUG: Skipping libpthread.so.0 dependency of _posixshmem.cpython-38-x86_64-linux-gnu.so
+35965 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_ctypes.cpython-38-x86_64-linux-gnu.so
+36013 DEBUG: Adding libffi.so.7 dependency of _ctypes.cpython-38-x86_64-linux-gnu.so from /opt/anaconda3/lib/python3.8/lib-dynload/../../libffi.so.7
+36014 DEBUG: Skipping libc.so.6 dependency of _ctypes.cpython-38-x86_64-linux-gnu.so
+36014 DEBUG: Skipping libdl.so.2 dependency of _ctypes.cpython-38-x86_64-linux-gnu.so
+36014 DEBUG: Skipping libpthread.so.0 dependency of _ctypes.cpython-38-x86_64-linux-gnu.so
+36014 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/array.cpython-38-x86_64-linux-gnu.so
+36086 DEBUG: Skipping libc.so.6 dependency of array.cpython-38-x86_64-linux-gnu.so
+36087 DEBUG: Skipping libpthread.so.0 dependency of array.cpython-38-x86_64-linux-gnu.so
+36087 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_multiprocessing.cpython-38-x86_64-linux-gnu.so
+36134 DEBUG: Skipping libc.so.6 dependency of _multiprocessing.cpython-38-x86_64-linux-gnu.so
+36135 DEBUG: Skipping libpthread.so.0 dependency of _multiprocessing.cpython-38-x86_64-linux-gnu.so
+36135 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/pyexpat.cpython-38-x86_64-linux-gnu.so
+36179 DEBUG: Skipping libc.so.6 dependency of pyexpat.cpython-38-x86_64-linux-gnu.so
+36179 DEBUG: Skipping libpthread.so.0 dependency of pyexpat.cpython-38-x86_64-linux-gnu.so
+36180 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/termios.cpython-38-x86_64-linux-gnu.so
+36223 DEBUG: Skipping libc.so.6 dependency of termios.cpython-38-x86_64-linux-gnu.so
+36223 DEBUG: Skipping libpthread.so.0 dependency of termios.cpython-38-x86_64-linux-gnu.so
+36224 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_decimal.cpython-38-x86_64-linux-gnu.so
+36281 DEBUG: Skipping libm.so.6 dependency of _decimal.cpython-38-x86_64-linux-gnu.so
+36282 DEBUG: Skipping libc.so.6 dependency of _decimal.cpython-38-x86_64-linux-gnu.so
+36282 DEBUG: Skipping libpthread.so.0 dependency of _decimal.cpython-38-x86_64-linux-gnu.so
+36282 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/readline.cpython-38-x86_64-linux-gnu.so
+36372 DEBUG: Adding libreadline.so.8 dependency of readline.cpython-38-x86_64-linux-gnu.so from /opt/anaconda3/lib/python3.8/lib-dynload/../../libreadline.so.8
+36373 DEBUG: Skipping libc.so.6 dependency of readline.cpython-38-x86_64-linux-gnu.so
+36373 DEBUG: Skipping libpthread.so.0 dependency of readline.cpython-38-x86_64-linux-gnu.so
+36373 DEBUG: Adding libtinfow.so.6 dependency of readline.cpython-38-x86_64-linux-gnu.so from /opt/anaconda3/lib/python3.8/lib-dynload/../.././libtinfow.so.6
+36374 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_opcode.cpython-38-x86_64-linux-gnu.so
+36420 DEBUG: Skipping libc.so.6 dependency of _opcode.cpython-38-x86_64-linux-gnu.so
+36421 DEBUG: Skipping libpthread.so.0 dependency of _opcode.cpython-38-x86_64-linux-gnu.so
+36421 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_pickle.cpython-38-x86_64-linux-gnu.so
+36482 DEBUG: Skipping libc.so.6 dependency of _pickle.cpython-38-x86_64-linux-gnu.so
+36483 DEBUG: Skipping libpthread.so.0 dependency of _pickle.cpython-38-x86_64-linux-gnu.so
+36483 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_hashlib.cpython-38-x86_64-linux-gnu.so
+36529 DEBUG: Skipping libc.so.6 dependency of _hashlib.cpython-38-x86_64-linux-gnu.so
+36530 DEBUG: Skipping libdl.so.2 dependency of _hashlib.cpython-38-x86_64-linux-gnu.so
+36530 DEBUG: Skipping libpthread.so.0 dependency of _hashlib.cpython-38-x86_64-linux-gnu.so
+36530 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_sha3.cpython-38-x86_64-linux-gnu.so
+36578 DEBUG: Skipping libc.so.6 dependency of _sha3.cpython-38-x86_64-linux-gnu.so
+36579 DEBUG: Skipping libpthread.so.0 dependency of _sha3.cpython-38-x86_64-linux-gnu.so
+36579 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_blake2.cpython-38-x86_64-linux-gnu.so
+36623 DEBUG: Skipping libc.so.6 dependency of _blake2.cpython-38-x86_64-linux-gnu.so
+36624 DEBUG: Skipping libpthread.so.0 dependency of _blake2.cpython-38-x86_64-linux-gnu.so
+36624 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_sha256.cpython-38-x86_64-linux-gnu.so
+36672 DEBUG: Skipping libc.so.6 dependency of _sha256.cpython-38-x86_64-linux-gnu.so
+36673 DEBUG: Skipping libpthread.so.0 dependency of _sha256.cpython-38-x86_64-linux-gnu.so
+36673 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_md5.cpython-38-x86_64-linux-gnu.so
+36720 DEBUG: Skipping libc.so.6 dependency of _md5.cpython-38-x86_64-linux-gnu.so
+36721 DEBUG: Skipping libpthread.so.0 dependency of _md5.cpython-38-x86_64-linux-gnu.so
+36721 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_sha1.cpython-38-x86_64-linux-gnu.so
+36768 DEBUG: Skipping libc.so.6 dependency of _sha1.cpython-38-x86_64-linux-gnu.so
+36769 DEBUG: Skipping libpthread.so.0 dependency of _sha1.cpython-38-x86_64-linux-gnu.so
+36771 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_sha512.cpython-38-x86_64-linux-gnu.so
+36816 DEBUG: Skipping libc.so.6 dependency of _sha512.cpython-38-x86_64-linux-gnu.so
+36817 DEBUG: Skipping libpthread.so.0 dependency of _sha512.cpython-38-x86_64-linux-gnu.so
+36817 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_bisect.cpython-38-x86_64-linux-gnu.so
+36863 DEBUG: Skipping libc.so.6 dependency of _bisect.cpython-38-x86_64-linux-gnu.so
+36863 DEBUG: Skipping libpthread.so.0 dependency of _bisect.cpython-38-x86_64-linux-gnu.so
+36864 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_csv.cpython-38-x86_64-linux-gnu.so
+36912 DEBUG: Skipping libc.so.6 dependency of _csv.cpython-38-x86_64-linux-gnu.so
+36913 DEBUG: Skipping libpthread.so.0 dependency of _csv.cpython-38-x86_64-linux-gnu.so
+36914 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/binascii.cpython-38-x86_64-linux-gnu.so
+36960 DEBUG: Skipping libc.so.6 dependency of binascii.cpython-38-x86_64-linux-gnu.so
+36960 DEBUG: Skipping libpthread.so.0 dependency of binascii.cpython-38-x86_64-linux-gnu.so
+36961 DEBUG: Adding libz.so.1 dependency of binascii.cpython-38-x86_64-linux-gnu.so from /opt/anaconda3/lib/python3.8/lib-dynload/../../libz.so.1
+36961 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/grp.cpython-38-x86_64-linux-gnu.so
+37008 DEBUG: Skipping libc.so.6 dependency of grp.cpython-38-x86_64-linux-gnu.so
+37009 DEBUG: Skipping libpthread.so.0 dependency of grp.cpython-38-x86_64-linux-gnu.so
+37010 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_lzma.cpython-38-x86_64-linux-gnu.so
+37055 DEBUG: Skipping libc.so.6 dependency of _lzma.cpython-38-x86_64-linux-gnu.so
+37056 DEBUG: Skipping librt.so.1 dependency of _lzma.cpython-38-x86_64-linux-gnu.so
+37056 DEBUG: Skipping libpthread.so.0 dependency of _lzma.cpython-38-x86_64-linux-gnu.so
+37056 DEBUG: Adding liblzma.so.5 dependency of _lzma.cpython-38-x86_64-linux-gnu.so from /opt/anaconda3/lib/python3.8/lib-dynload/../../liblzma.so.5
+37056 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_bz2.cpython-38-x86_64-linux-gnu.so
+37103 DEBUG: Skipping libc.so.6 dependency of _bz2.cpython-38-x86_64-linux-gnu.so
+37103 DEBUG: Skipping libpthread.so.0 dependency of _bz2.cpython-38-x86_64-linux-gnu.so
+37104 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/zlib.cpython-38-x86_64-linux-gnu.so
+37151 DEBUG: Skipping libc.so.6 dependency of zlib.cpython-38-x86_64-linux-gnu.so
+37152 DEBUG: Skipping libpthread.so.0 dependency of zlib.cpython-38-x86_64-linux-gnu.so
+37152 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/resource.cpython-38-x86_64-linux-gnu.so
+37232 DEBUG: Skipping libc.so.6 dependency of resource.cpython-38-x86_64-linux-gnu.so
+37233 DEBUG: Skipping libpthread.so.0 dependency of resource.cpython-38-x86_64-linux-gnu.so
+37233 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_heapq.cpython-38-x86_64-linux-gnu.so
+37280 DEBUG: Skipping libc.so.6 dependency of _heapq.cpython-38-x86_64-linux-gnu.so
+37280 DEBUG: Skipping libpthread.so.0 dependency of _heapq.cpython-38-x86_64-linux-gnu.so
+37281 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_multibytecodec.cpython-38-x86_64-linux-gnu.so
+37339 DEBUG: Skipping libc.so.6 dependency of _multibytecodec.cpython-38-x86_64-linux-gnu.so
+37340 DEBUG: Skipping libpthread.so.0 dependency of _multibytecodec.cpython-38-x86_64-linux-gnu.so
+37340 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_codecs_tw.cpython-38-x86_64-linux-gnu.so
+37398 DEBUG: Skipping libc.so.6 dependency of _codecs_tw.cpython-38-x86_64-linux-gnu.so
+37399 DEBUG: Skipping libpthread.so.0 dependency of _codecs_tw.cpython-38-x86_64-linux-gnu.so
+37399 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_codecs_cn.cpython-38-x86_64-linux-gnu.so
+37450 DEBUG: Skipping libc.so.6 dependency of _codecs_cn.cpython-38-x86_64-linux-gnu.so
+37451 DEBUG: Skipping libpthread.so.0 dependency of _codecs_cn.cpython-38-x86_64-linux-gnu.so
+37451 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_codecs_iso2022.cpython-38-x86_64-linux-gnu.so
+37498 DEBUG: Skipping libc.so.6 dependency of _codecs_iso2022.cpython-38-x86_64-linux-gnu.so
+37499 DEBUG: Skipping libpthread.so.0 dependency of _codecs_iso2022.cpython-38-x86_64-linux-gnu.so
+37499 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_codecs_kr.cpython-38-x86_64-linux-gnu.so
+37554 DEBUG: Skipping libc.so.6 dependency of _codecs_kr.cpython-38-x86_64-linux-gnu.so
+37555 DEBUG: Skipping libpthread.so.0 dependency of _codecs_kr.cpython-38-x86_64-linux-gnu.so
+37556 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_codecs_hk.cpython-38-x86_64-linux-gnu.so
+37613 DEBUG: Skipping libc.so.6 dependency of _codecs_hk.cpython-38-x86_64-linux-gnu.so
+37614 DEBUG: Skipping libpthread.so.0 dependency of _codecs_hk.cpython-38-x86_64-linux-gnu.so
+37614 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_codecs_jp.cpython-38-x86_64-linux-gnu.so
+37673 DEBUG: Skipping libc.so.6 dependency of _codecs_jp.cpython-38-x86_64-linux-gnu.so
+37674 DEBUG: Skipping libpthread.so.0 dependency of _codecs_jp.cpython-38-x86_64-linux-gnu.so
+37674 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_datetime.cpython-38-x86_64-linux-gnu.so
+37718 DEBUG: Skipping libm.so.6 dependency of _datetime.cpython-38-x86_64-linux-gnu.so
+37719 DEBUG: Skipping libc.so.6 dependency of _datetime.cpython-38-x86_64-linux-gnu.so
+37719 DEBUG: Skipping libpthread.so.0 dependency of _datetime.cpython-38-x86_64-linux-gnu.so
+37719 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_tkinter.cpython-38-x86_64-linux-gnu.so
+37765 DEBUG: Skipping libm.so.6 dependency of _tkinter.cpython-38-x86_64-linux-gnu.so
+37766 DEBUG: Skipping libpthread.so.0 dependency of _tkinter.cpython-38-x86_64-linux-gnu.so
+37766 DEBUG: Skipping libxcb.so.1 dependency of _tkinter.cpython-38-x86_64-linux-gnu.so
+37766 DEBUG: Adding libXau.so.6 dependency of _tkinter.cpython-38-x86_64-linux-gnu.so from /lib/x86_64-linux-gnu/libXau.so.6
+37767 DEBUG: Skipping libdl.so.2 dependency of _tkinter.cpython-38-x86_64-linux-gnu.so
+37767 DEBUG: Skipping libc.so.6 dependency of _tkinter.cpython-38-x86_64-linux-gnu.so
+37767 DEBUG: Adding libtk8.6.so dependency of _tkinter.cpython-38-x86_64-linux-gnu.so from /opt/anaconda3/lib/python3.8/lib-dynload/../../libtk8.6.so
+37767 DEBUG: Adding libtcl8.6.so dependency of _tkinter.cpython-38-x86_64-linux-gnu.so from /opt/anaconda3/lib/python3.8/lib-dynload/../../libtcl8.6.so
+37767 DEBUG: Adding libX11.so.6 dependency of _tkinter.cpython-38-x86_64-linux-gnu.so from /lib/x86_64-linux-gnu/libX11.so.6
+37768 DEBUG: Adding libz.so.1 dependency of _tkinter.cpython-38-x86_64-linux-gnu.so from /opt/anaconda3/lib/python3.8/lib-dynload/../.././libz.so.1
+37768 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/_sqlite3.cpython-38-x86_64-linux-gnu.so
+37870 DEBUG: Skipping libm.so.6 dependency of _sqlite3.cpython-38-x86_64-linux-gnu.so
+37871 DEBUG: Skipping libpthread.so.0 dependency of _sqlite3.cpython-38-x86_64-linux-gnu.so
+37871 DEBUG: Adding libsqlite3.so.0 dependency of _sqlite3.cpython-38-x86_64-linux-gnu.so from /opt/anaconda3/lib/python3.8/lib-dynload/../../libsqlite3.so.0
+37871 DEBUG: Skipping libc.so.6 dependency of _sqlite3.cpython-38-x86_64-linux-gnu.so
+37871 DEBUG: Skipping libdl.so.2 dependency of _sqlite3.cpython-38-x86_64-linux-gnu.so
+37871 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/../../libssl.so.1.1
+37915 DEBUG: Skipping libc.so.6 dependency of libssl.so.1.1
+37915 DEBUG: Skipping libdl.so.2 dependency of libssl.so.1.1
+37916 DEBUG: Skipping libpthread.so.0 dependency of libssl.so.1.1
+37916 DEBUG: Adding libcrypto.so.1.1 dependency of libssl.so.1.1 from /opt/anaconda3/lib/python3.8/lib-dynload/../.././libcrypto.so.1.1
+37916 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/../../libcrypto.so.1.1
+37961 DEBUG: Skipping libc.so.6 dependency of libcrypto.so.1.1
+37961 DEBUG: Skipping libpthread.so.0 dependency of libcrypto.so.1.1
+37962 DEBUG: Skipping libdl.so.2 dependency of libcrypto.so.1.1
+37962 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/../../libffi.so.7
+38007 DEBUG: Skipping libc.so.6 dependency of libffi.so.7
+38008 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/../../libreadline.so.8
+38054 DEBUG: Skipping libc.so.6 dependency of libreadline.so.8
+38055 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/../.././libtinfow.so.6
+38099 DEBUG: Skipping libc.so.6 dependency of libtinfow.so.6
+38100 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/../../libz.so.1
+38146 DEBUG: Skipping libc.so.6 dependency of libz.so.1
+38147 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/../../liblzma.so.5
+38192 DEBUG: Skipping libc.so.6 dependency of liblzma.so.5
+38192 DEBUG: Skipping libpthread.so.0 dependency of liblzma.so.5
+38193 DEBUG: Skipping librt.so.1 dependency of liblzma.so.5
+38193 DEBUG: Analyzing /lib/x86_64-linux-gnu/libXau.so.6
+38239 DEBUG: Skipping libc.so.6 dependency of libXau.so.6
+38239 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/../../libtk8.6.so
+38286 DEBUG: Skipping libm.so.6 dependency of libtk8.6.so
+38287 DEBUG: Skipping libpthread.so.0 dependency of libtk8.6.so
+38287 DEBUG: Skipping libxcb.so.1 dependency of libtk8.6.so
+38287 DEBUG: Skipping libc.so.6 dependency of libtk8.6.so
+38288 DEBUG: Skipping libdl.so.2 dependency of libtk8.6.so
+38288 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/../../libtcl8.6.so
+38334 DEBUG: Skipping libm.so.6 dependency of libtcl8.6.so
+38334 DEBUG: Skipping libpthread.so.0 dependency of libtcl8.6.so
+38335 DEBUG: Skipping libc.so.6 dependency of libtcl8.6.so
+38335 DEBUG: Skipping libdl.so.2 dependency of libtcl8.6.so
+38335 DEBUG: Analyzing /lib/x86_64-linux-gnu/libX11.so.6
+38380 DEBUG: Skipping libc.so.6 dependency of libX11.so.6
+38381 DEBUG: Skipping libdl.so.2 dependency of libX11.so.6
+38381 DEBUG: Skipping libxcb.so.1 dependency of libX11.so.6
+38381 DEBUG: Adding libXdmcp.so.6 dependency of libX11.so.6 from /lib/x86_64-linux-gnu/libXdmcp.so.6
+38381 DEBUG: Adding libbsd.so.0 dependency of libX11.so.6 from /lib/x86_64-linux-gnu/libbsd.so.0
+38382 DEBUG: Analyzing /opt/anaconda3/lib/python3.8/lib-dynload/../../libsqlite3.so.0
+38429 DEBUG: Skipping libm.so.6 dependency of libsqlite3.so.0
+38429 DEBUG: Skipping libpthread.so.0 dependency of libsqlite3.so.0
+38430 DEBUG: Skipping libc.so.6 dependency of libsqlite3.so.0
+38430 DEBUG: Skipping libdl.so.2 dependency of libsqlite3.so.0
+38430 DEBUG: Analyzing /lib/x86_64-linux-gnu/libXdmcp.so.6
+38483 DEBUG: Skipping libc.so.6 dependency of libXdmcp.so.6
+38483 DEBUG: Analyzing /lib/x86_64-linux-gnu/libbsd.so.0
+38526 DEBUG: Skipping libc.so.6 dependency of libbsd.so.0
+38528 INFO: Looking for eggs
+38528 INFO: Python library not in binary dependencies. Doing additional searching...
+38574 DEBUG: Adding Python library to binary dependencies
+38575 INFO: Using Python library /opt/anaconda3/lib/libpython3.8.so.1.0
+38595 INFO: Warnings written to /home/dicky/PythonProjects/Personal Password Manager/build/MainWindow/warn-MainWindow.txt
+38709 INFO: Graph cross-reference written to /home/dicky/PythonProjects/Personal Password Manager/build/MainWindow/xref-MainWindow.html
+38759 INFO: Graph drawing written to /home/dicky/PythonProjects/Personal Password Manager/build/MainWindow/graph-MainWindow.dot
+38800 INFO: Appending 'datas' from .spec
+38876 INFO: checking PYZ
+38908 INFO: Building because name changed
+38908 INFO: Building PYZ (ZlibArchive) /home/dicky/PythonProjects/Personal Password Manager/build/MainWindow/PYZ-00.pyz
+40362 INFO: Building PYZ (ZlibArchive) /home/dicky/PythonProjects/Personal Password Manager/build/MainWindow/PYZ-00.pyz completed successfully.
+40378 INFO: checking PKG
+40402 INFO: Building because name changed
+40402 INFO: Building PKG (CArchive) PKG-00.pkg
+40464 DEBUG: Compiling /home/dicky/.local/lib/python3.8/site-packages/PyInstaller/loader/pyiboot01_bootstrap.py
+40465 DEBUG: Compiling /home/dicky/.local/lib/python3.8/site-packages/PyInstaller/loader/pyiboot01_bootstrap.py
+40486 DEBUG: Compiling /home/dicky/.local/lib/python3.8/site-packages/PyInstaller/hooks/rthooks/pyi_rth_multiprocessing.py
+40487 DEBUG: Compiling /home/dicky/.local/lib/python3.8/site-packages/PyInstaller/hooks/rthooks/pyi_rth_multiprocessing.py
+40529 DEBUG: Compiling /home/dicky/.local/lib/python3.8/site-packages/PyInstaller/hooks/rthooks/pyi_rth__tkinter.py
+40530 DEBUG: Compiling /home/dicky/.local/lib/python3.8/site-packages/PyInstaller/hooks/rthooks/pyi_rth__tkinter.py
+40535 DEBUG: Compiling /home/dicky/PythonProjects/Personal Password Manager/MainWindow.py
+40536 DEBUG: Compiling /home/dicky/PythonProjects/Personal Password Manager/MainWindow.py
+40577 INFO: Building PKG (CArchive) PKG-00.pkg completed successfully.
+40580 INFO: Bootloader /home/dicky/.local/lib/python3.8/site-packages/PyInstaller/bootloader/Linux-64bit/run
+40580 INFO: checking EXE
+40602 INFO: Building because name changed
+40602 INFO: Building EXE from EXE-00.toc
+40630 INFO: Appending archive to ELF section in EXE /home/dicky/PythonProjects/Personal Password Manager/build/MainWindow/Personal Password Manager
+40728 DEBUG: objcopy returned 0
+40731 INFO: Building EXE from EXE-00.toc completed successfully.
+40739 INFO: checking COLLECT
+WARNING: The output directory "/home/dicky/PythonProjects/Personal Password Manager/dist/Personal Password Manager" and ALL ITS CONTENTS will be REMOVED! Continue? (y/N)
