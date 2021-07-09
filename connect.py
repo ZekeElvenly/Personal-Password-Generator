@@ -1,9 +1,11 @@
 import sqlite3
 from sqlite3 import Error
+from os import path
 
 def initiating_local_db():
     """ Connect to MySQL database """
-    conn = sqlite3.connect(r"dbase.db")
+    dbpath = path.abspath(path.join(path.dirname(__file__), 'dbase.db'))
+    conn = sqlite3.connect(dbpath)
     try:
         cur = conn.cursor()
         cur.execute('''CREATE TABLE IF NOT EXISTS digital_identity (id integer PRIMARY KEY, 

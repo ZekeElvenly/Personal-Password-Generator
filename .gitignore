@@ -7,3 +7,4 @@ Personal Password Generator.tar.gz
 *.spec
 build/
 dist/
+*.txt

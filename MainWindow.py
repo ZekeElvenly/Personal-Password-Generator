@@ -7,6 +7,7 @@ from sqlite3 import Error
 from connect import initiating_local_db
 from datetime import *
 from PPG import passwordGenerator
+from os import path
 
 class mainWindow(Frame):
     def __init__(self):
@@ -14,7 +15,9 @@ class mainWindow(Frame):
         self.master.title(r'Personal Password Manager')
         self.master.geometry("900x500")
         self.master.resizable(True, True)
-        self.master.iconphoto(False, PhotoImage(file=r"icon.png"))
+        self.iconpath = path.abspath(path.join(path.dirname(__file__), 'icon.png'))
+        self.dbpath = path.abspath(path.join(path.dirname(__file__), 'dbase.db'))
+        self.master.iconphoto(False, PhotoImage(file=self.iconpath))
         self.pack(fill=X)
         initiating_local_db()
         self.Login()
@@ -36,7 +39,7 @@ class mainWindow(Frame):
             with sqlite3
         """
         try:
-            self.conn = sqlite3.connect(r"dbase.db")
+            self.conn = sqlite3.connect(self.dbpath)
             self.cur = self.conn.cursor()
         except Error as e:
             messagebox.askquestion("Database Error", e)
@@ -99,7 +102,7 @@ class mainWindow(Frame):
             passWord = EntMstrPass.get()
             cnfrmPass = EntCnfrmPass.get()
             if passWord == cnfrmPass:
-                conn = sqlite3.connect(r"dbase.db")
+                conn = sqlite3.connect(self.dbpath)
                 cur = conn.cursor()
                 addQ = '''INSERT INTO master (masterUser, masterPass) VALUES (?,?)'''
                 cur.execute(addQ, (usrName, passWord))
@@ -141,7 +144,7 @@ class mainWindow(Frame):
         btnOK = Button(frame5, text="OK", command=lambda : submit())
         btnOK.pack(side=RIGHT)
 
-        conn = sqlite3.connect(r"dbase.db")
+        conn = sqlite3.connect(self.dbpath)
         cur = conn.cursor()
         getQuery = cur.execute('''SELECT masterPass FROM master WHERE id=1''').fetchone()
         oldPass = str(" ".join(getQuery))
@@ -176,7 +179,7 @@ class mainWindow(Frame):
         self.check_credential()
 
         def checkUsr():
-            conn = sqlite3.connect(r"dbase.db")
+            conn = sqlite3.connect(self.dbpath)
             cur = conn.cursor()
             execMstrUser = cur.execute('''SELECT masterUser FROM master WHERE id=1''').fetchone()
             execMstrPass = cur.execute('''SELECT masterPass FROM master WHERE id=1''').fetchone()
@@ -186,7 +189,7 @@ class mainWindow(Frame):
                self.mainFrame()
             else:
                 messagebox.showerror('Error', r'Wrong Username or Password')  
-            sqlite3.connect(r"dbase.db").close()
+            sqlite3.connect(self.dbpath).close()
 
     def mainFrame(self):
         '''The main window of the app'''

@@ -327,4 +327,4 @@
 40728 DEBUG: objcopy returned 0
 40731 INFO: Building EXE from EXE-00.toc completed successfully.
 40739 INFO: checking COLLECT
-WARNING: The output directory "/home/dicky/PythonProjects/Personal Password Manager/dist/Personal Password Manager" and ALL ITS CONTENTS will be REMOVED! Continue? (y/N)
+WARNING: The output directory "/home/dicky/PythonProjects/Personal Password Manager/dist/Personal Password Manager" and ALL ITS CONTENTS will be REMOVED! Continue? (y/N)Aborted by user request.
