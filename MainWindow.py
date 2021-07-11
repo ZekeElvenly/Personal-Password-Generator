@@ -260,14 +260,14 @@ class mainWindow(Frame):
     def get_username(self):
         treeCursor = self.recordDB.selection()
         getExstUsrnm = '''SELECT username FROM digital_identity WHERE id =(?)'''
-        execExstUsrnm = self.cur.execute(getExstUsrnm, self.recordDB.set(treeCursor, '#1')).fetchone()
+        execExstUsrnm = self.cur.execute(getExstUsrnm, [self.recordDB.set(treeCursor, '#1')]).fetchone()
         self.master.clipboard_clear()
         self.master.clipboard_append(" ".join(execExstUsrnm))
 
     def get_password(self):
         treeCursor = self.recordDB.selection()
         getPassword = '''SELECT password FROM digital_identity WHERE id =(?)'''
-        execPassword = self.cur.execute(getPassword, self.recordDB.set(treeCursor, '#1')).fetchone()
+        execPassword = self.cur.execute(getPassword, [self.recordDB.set(treeCursor, '#1')]).fetchone()
         self.master.clipboard_clear()
         self.master.clipboard_append(" ".join(execPassword))
 
@@ -281,7 +281,7 @@ class mainWindow(Frame):
 
             treeCursor = self.recordDB.selection()
 
-            execPass = self.cur.execute("SELECT password FROM digital_identity WHERE id =(?)", self.recordDB.set(treeCursor, '#1')).fetchone()
+            execPass = self.cur.execute("SELECT password FROM digital_identity WHERE id =(?)", [self.recordDB.set(treeCursor, '#1')]).fetchone()
             password = StringVar(showPass)
             password.set(" ".join(execPass))
 
@@ -300,7 +300,7 @@ class mainWindow(Frame):
             btnOK = Button(frame2, text="OK", command=showPass.destroy)
             btnOK.pack(side=RIGHT)
 
-        except:
+        except TypeError:
             showPass.destroy()
             messagebox.showwarning('Warning', 'No data selected', icon='warning')
     
@@ -365,7 +365,7 @@ class mainWindow(Frame):
         addFrame3.pack(fill=X)
         lblPass = Label(addFrame3, text="Password", width=11)
         lblPass.pack(side=LEFT, padx=5, pady=5)
-        self.inpPass = Entry(addFrame3, width=16)
+        self.inpPass = Entry(addFrame3, width=16, show='*')
         self.inpPass.pack(side=LEFT, fill=X, padx=5)
         getPass = Button(addFrame3, command=lambda: generate_password())
         getPass.pack(fill=X, padx=5, pady=1)
@@ -411,7 +411,7 @@ class mainWindow(Frame):
             addFrame1.pack(fill=X)
             lblNm = Label(addFrame1, text="Name", width=11)
             lblNm.pack(side=LEFT, padx=5, pady=5)
-            execExstNm = self.cur.execute("SELECT name FROM digital_identity WHERE id =(?)", self.recordDB.set(treeCursor, '#1')).fetchone()
+            execExstNm = self.cur.execute("SELECT name FROM digital_identity WHERE id =(?)", [self.recordDB.set(treeCursor, '#1')]).fetchone()
             self.edtNm = Entry(addFrame1, width=22)
             self.edtNm.insert(0, " ".join(execExstNm))
             self.edtNm.pack(side=LEFT, fill=X, padx=5)
@@ -421,7 +421,7 @@ class mainWindow(Frame):
             lblUsrnm = Label(addFrame2, text="Username", width=11)
             lblUsrnm.pack(side=LEFT, padx=5, pady=5)
             getExstUsrnm = '''SELECT username FROM digital_identity WHERE id =(?)'''
-            execExstUsrnm = self.cur.execute(getExstUsrnm, self.recordDB.set(treeCursor, '#1')).fetchone()
+            execExstUsrnm = self.cur.execute(getExstUsrnm, [self.recordDB.set(treeCursor, '#1')]).fetchone()
             self.edtUsrnm = Entry(addFrame2, width=22)
             self.edtUsrnm.insert(0, " ".join(execExstUsrnm))
             self.edtUsrnm.pack(side=LEFT, fill=X, padx=5)
@@ -431,8 +431,8 @@ class mainWindow(Frame):
             lblPass = Label(addFrame3, text="Password", width=11)
             lblPass.pack(side=LEFT, padx=5, pady=5)
             getExstPass = "SELECT password FROM digital_identity WHERE id=(?)"
-            execExstPass = self.cur.execute(getExstPass, self.recordDB.set(treeCursor, '#1')).fetchone()
-            self.edtPass = Entry(addFrame3, width=16)
+            execExstPass = self.cur.execute(getExstPass, [self.recordDB.set(treeCursor, '#1')]).fetchone()
+            self.edtPass = Entry(addFrame3, width=16, show='*')
             self.edtPass.insert(0, " ".join(execExstPass))
             self.edtPass.pack(side=LEFT, fill=X, padx=5)
             getPass = Button(addFrame3, command=lambda: generate_password())
@@ -448,7 +448,7 @@ class mainWindow(Frame):
             lblDesc = Label(addFrame4, text="Description", width=11)
             lblDesc.pack(side=LEFT, padx=5, pady=5)
             getExstDesc = "SELECT desc FROM digital_identity WHERE id=(?)"
-            execExstDesc = self.cur.execute(getExstDesc, self.recordDB.set(treeCursor, '#1')).fetchone()
+            execExstDesc = self.cur.execute(getExstDesc, [self.recordDB.set(treeCursor, '#1')]).fetchone()
             self.edtDesc = Entry(addFrame4, width=22)
             self.edtDesc.insert(0, " ".join(execExstDesc))
             self.edtDesc.pack(side=LEFT, fill=X, padx=5)
@@ -460,7 +460,7 @@ class mainWindow(Frame):
             inpData = Button(addFrame5, text="Update", command=self.commit_update)
             inpData.pack(fill=X, padx=5, pady=5, side=RIGHT)
 
-        except:
+        except TypeError:
             self.updData.destroy()
             messagebox.showwarning('Warning', 'No data selected', icon='warning')
 
