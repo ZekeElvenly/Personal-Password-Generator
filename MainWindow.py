@@ -314,6 +314,8 @@ class mainWindow(Frame):
         fileMenu.add_command(label="Add Data", command=self.add_data)
         fileMenu.add_command(label="Commit Data", command=self.conn.commit)
         fileMenu.add_separator()
+        fileMenu.add_command(label="Refresh", command=lambda :self.showTable(self.showRecord, self.recordDB))
+        fileMenu.add_separator()
         fileMenu.add_command(label="Exit", command=self.master.destroy)
 
         # Edit menu
