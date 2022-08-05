@@ -42,7 +42,7 @@ class mainWindow(Frame):
             self.conn = sqlite3.connect(self.dbpath)
             self.cur = self.conn.cursor()
         except Error as e:
-            messagebox.askquestion("Database Error", e)
+            messagebox.askquestion("Couldn't Connect to Database", e)
             quit()
 
     def check_credential(self):
@@ -56,6 +56,19 @@ class mainWindow(Frame):
                 self.create_master() 
             else:
                 self.master.destroy()
+
+    def treeview_sort_column(self, tv, col, reverse):
+        """ Sort the Treeview, Thanks to someone on stackoverflow """
+        l = [(tv.set(k, col), k) for k in tv.get_children('')]
+        l.sort(reverse=reverse)
+
+        # rearrange items in sorted positions
+        for index, (val, k) in enumerate(l):
+            tv.move(k, '', index)
+
+        # reverse sort next time
+        tv.heading(col, command=lambda: \
+            self.treeview_sort_column(tv, col, not reverse))
 
     def create_master(self):
         createMaster = Tk()
@@ -91,7 +104,7 @@ class mainWindow(Frame):
         lblStatus.pack()
 
         frame5 = Frame(createMaster)
-        frame5.pack(fill="none", padx=5, pady=3, expand=True)
+        frame5.pack(fill="none", padx=self.defaultXPadding, pady=self.defaultYPadding, expand=True)
         btnCancel = Button(frame5, text="Cancel", command=createMaster.destroy)
         btnCancel.pack(side=LEFT)
         btnOK = Button(frame5, text="OK", command=lambda : submit())
@@ -118,27 +131,27 @@ class mainWindow(Frame):
         updateMaster.resizable(False, False)
 
         frame2 = Frame(updateMaster)
-        frame2.pack(fill=X, padx=5, pady=3)
+        frame2.pack(fill=X, padx=self.defaultXPadding, pady=self.defaultYPadding)
         lblOldPass = Label(frame2, text="Old Password ", width=16)
-        lblOldPass.pack(side=LEFT, padx=5)
+        lblOldPass.pack(side=LEFT, padx=self.defaultXPadding)
         EntOldPass = Entry(frame2, width=30, show='*')
         EntOldPass.pack(side=LEFT, expand=True)
 
         frame3 = Frame(updateMaster)
-        frame3.pack(fill=X, padx=5, pady=3)
+        frame3.pack(fill=X, padx=self.defaultXPadding, pady=self.defaultYPadding)
         lblNewPass = Label(frame3, text="New Password ", width=16)
-        lblNewPass.pack(side=LEFT, padx=5)
+        lblNewPass.pack(side=LEFT, padx=self.defaultXPadding)
         EntNewPass = Entry(frame3, width=30, show='*')
         EntNewPass.pack(side=LEFT, expand=True)
 
         frame4 = Frame(updateMaster)
-        frame4.pack(fill=X, padx=5, pady=3)
+        frame4.pack(fill=X, padx=self.defaultXPadding, pady=self.defaultYPadding)
         status = StringVar(updateMaster)
         lblStatus = Label(frame4, textvariable=status, fg="red")
         lblStatus.pack()
 
         frame5 = Frame(updateMaster)
-        frame5.pack(fill="none", padx=5, pady=3, expand=True)
+        frame5.pack(fill="none", padx=self.defaultXPadding, pady=self.defaultYPadding, expand=True)
         btnCancel = Button(frame5, text="Cancel", command=updateMaster.destroy)
         btnCancel.pack(side=LEFT)
         btnOK = Button(frame5, text="OK", command=lambda : submit())
@@ -161,20 +174,28 @@ class mainWindow(Frame):
 
     def Login(self):
         '''Login Frame'''
+
+        imageFrame = Frame()
+        #imageFrame.pack(anchor="w")
+        background = ImageTk.PhotoImage(Image.open("forest.jpg"))
+        imgContainer = Label(imageFrame, image=background)
+        #imgContainer.pack(side=BOTTOM)
+
         loginFrame = Frame()
         loginFrame.pack(fill="none", expand=True)
         self.master.bind("<Return>", lambda e: checkUsr())
 
+        boxWidth = 30
         usrLabel = Label(loginFrame, text="Master Username :")
-        usrLabel.pack(pady=5)
-        usrEntry = Entry(loginFrame, width=30)
-        usrEntry.pack(pady=5)
+        usrLabel.pack(pady=self.defaultYPadding)
+        usrEntry = Entry(loginFrame, width=boxWidth)
+        usrEntry.pack(pady=self.defaultYPadding)
         passLabel = Label(loginFrame, text="Master Password :")
-        passLabel.pack(pady=5)
-        passEntry = Entry(loginFrame, width=30, show="*")
-        passEntry.pack(pady=5)
+        passLabel.pack(pady=self.defaultYPadding)
+        passEntry = Entry(loginFrame, width=boxWidth, show="*")
+        passEntry.pack(pady=self.defaultYPadding)
         btnLogin = Button(loginFrame, text='Login', command=lambda: checkUsr())
-        btnLogin.pack(pady=5)
+        btnLogin.pack(pady=self.defaultYPadding)
 
         self.check_credential()
 
@@ -311,8 +332,7 @@ class mainWindow(Frame):
         # File menu
         fileMenu = tk.Menu(self.menubar)
         self.menubar.add_cascade(label="File", menu=fileMenu)
-        fileMenu.add_command(label="Add Data", command=self.add_data)
-        fileMenu.add_command(label="Commit Data", command=self.conn.commit)
+        fileMenu.add_command(label="Add Login Information", command=self.add_data)
         fileMenu.add_separator()
         fileMenu.add_command(label="Refresh", command=lambda :self.showTable(self.showRecord, self.recordDB))
         fileMenu.add_separator()
@@ -492,19 +512,6 @@ class mainWindow(Frame):
             self.recordDB.delete(data)
         for data in rows:
             self.recordDB.insert("", END, values=data)
-        
-    def treeview_sort_column(self, tv, col, reverse):
-        """ Sort the Treeview, Thanks to someone on stackoverflow """
-        l = [(tv.set(k, col), k) for k in tv.get_children('')]
-        l.sort(reverse=reverse)
-
-        # rearrange items in sorted positions
-        for index, (val, k) in enumerate(l):
-            tv.move(k, '', index)
-
-        # reverse sort next time
-        tv.heading(col, command=lambda: \
-            self.treeview_sort_column(tv, col, not reverse))
 
     def about_app(self):
         about = tk.Tk()
