@@ -1,5 +1,6 @@
 MainWindow(MySQL).py
 *.db
+*.sh
 test.py
 database.py
 __pycache__/
