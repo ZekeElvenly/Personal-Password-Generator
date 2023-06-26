@@ -2,7 +2,7 @@ import sqlite3
 from sqlite3 import Error
 from os import path
 
-def initiating_local_db():
+def sqlite3_db_init():
     """ Connect to MySQL database """
     dbpath = path.abspath(path.join(path.dirname(__file__), 'dbase.db'))
     conn = sqlite3.connect(dbpath)
@@ -24,7 +24,4 @@ def initiating_local_db():
 
     except Error as e:
         print(e)
-
-if __name__ == '__main__':
-    initiating_local_db()
 

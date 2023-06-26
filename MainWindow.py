@@ -1,13 +1,13 @@
-from sqlite3.dbapi2 import connect
 import tkinter as tk
 from tkinter import *
-from tkinter import ttk, messagebox
+from tkinter import ttk, messagebox, font
 import sqlite3
 from sqlite3 import Error
-from connect import initiating_local_db
+from connect import sqlite3_db_init
 from datetime import *
 from PPG import passwordGenerator
 from os import path
+
 
 class mainWindow(Frame):
     def __init__(self):
@@ -15,13 +15,19 @@ class mainWindow(Frame):
         self.master.title(r'Personal Password Manager')
         self.master.geometry("900x500")
         self.master.resizable(True, True)
-        self.iconpath = path.abspath(path.join(path.dirname(__file__), 'icon.png'))
-        self.dbpath = path.abspath(path.join(path.dirname(__file__), 'dbase.db'))
+        self.iconpath = path.abspath(
+            path.join(path.dirname(__file__), 'icon.png'))
+        self.defaultFont = font.nametofont("TkDefaultFont")
+        self.defaultFont.configure(family="newspaper", size=9)
+        self.dbpath = path.abspath(
+            path.join(path.dirname(__file__), 'dbase.db'))
         self.master.iconphoto(False, PhotoImage(file=self.iconpath))
+        self.defaultXPadding = 8
+        self.defaultYPadding = 5
         self.pack(fill=X)
-        initiating_local_db()
+        sqlite3_db_init()
         self.Login()
-    
+
     def clearFrame(self):
         # destroy all widgets from frame
         for widget in self.master.winfo_children():
@@ -32,6 +38,7 @@ class mainWindow(Frame):
         self.pack_forget()
         # PS : Thank You someone from stackoverflow.com
 
+    # For Connecting to database
     def connect(self):
         """ Connect to SQLite3 database,
             by default you are connected to 
@@ -51,9 +58,12 @@ class mainWindow(Frame):
         if check.fetchone():
             self.conn.close()
         else:
-            createMstrDialog = messagebox.askquestion('Create Master User', r'No master account created, would you like to make in order to use this app?')
+            createMstrDialog = messagebox.askquestion(
+                'Create Master User',
+                r'No master account created, would you like to make in order to use this app?'
+            )
             if createMstrDialog == 'yes':
-                self.create_master() 
+                self.create_master()
             else:
                 self.master.destroy()
 
@@ -104,12 +114,15 @@ class mainWindow(Frame):
         lblStatus.pack()
 
         frame5 = Frame(createMaster)
-        frame5.pack(fill="none", padx=self.defaultXPadding, pady=self.defaultYPadding, expand=True)
+        frame5.pack(fill="none",
+                    padx=self.defaultXPadding,
+                    pady=self.defaultYPadding,
+                    expand=True)
         btnCancel = Button(frame5, text="Cancel", command=createMaster.destroy)
         btnCancel.pack(side=LEFT)
-        btnOK = Button(frame5, text="OK", command=lambda : submit())
+        btnOK = Button(frame5, text="OK", command=lambda: submit())
         btnOK.pack(side=RIGHT)
-        
+
         def submit():
             usrName = EntMstrUser.get()
             passWord = EntMstrPass.get()
@@ -123,7 +136,7 @@ class mainWindow(Frame):
                 createMaster.destroy()
             else:
                 status.set("Password didn't match")
-            
+
     def update_master(self):
         updateMaster = Tk()
         updateMaster.title("Edit Master Account")
@@ -131,42 +144,53 @@ class mainWindow(Frame):
         updateMaster.resizable(False, False)
 
         frame2 = Frame(updateMaster)
-        frame2.pack(fill=X, padx=self.defaultXPadding, pady=self.defaultYPadding)
+        frame2.pack(fill=X,
+                    padx=self.defaultXPadding,
+                    pady=self.defaultYPadding)
         lblOldPass = Label(frame2, text="Old Password ", width=16)
         lblOldPass.pack(side=LEFT, padx=self.defaultXPadding)
         EntOldPass = Entry(frame2, width=30, show='*')
         EntOldPass.pack(side=LEFT, expand=True)
 
         frame3 = Frame(updateMaster)
-        frame3.pack(fill=X, padx=self.defaultXPadding, pady=self.defaultYPadding)
+        frame3.pack(fill=X,
+                    padx=self.defaultXPadding,
+                    pady=self.defaultYPadding)
         lblNewPass = Label(frame3, text="New Password ", width=16)
         lblNewPass.pack(side=LEFT, padx=self.defaultXPadding)
         EntNewPass = Entry(frame3, width=30, show='*')
         EntNewPass.pack(side=LEFT, expand=True)
 
         frame4 = Frame(updateMaster)
-        frame4.pack(fill=X, padx=self.defaultXPadding, pady=self.defaultYPadding)
+        frame4.pack(fill=X,
+                    padx=self.defaultXPadding,
+                    pady=self.defaultYPadding)
         status = StringVar(updateMaster)
         lblStatus = Label(frame4, textvariable=status, fg="red")
         lblStatus.pack()
 
         frame5 = Frame(updateMaster)
-        frame5.pack(fill="none", padx=self.defaultXPadding, pady=self.defaultYPadding, expand=True)
+        frame5.pack(fill="none",
+                    padx=self.defaultXPadding,
+                    pady=self.defaultYPadding,
+                    expand=True)
         btnCancel = Button(frame5, text="Cancel", command=updateMaster.destroy)
         btnCancel.pack(side=LEFT)
-        btnOK = Button(frame5, text="OK", command=lambda : submit())
+        btnOK = Button(frame5, text="OK", command=lambda: submit())
         btnOK.pack(side=RIGHT)
 
         conn = sqlite3.connect(self.dbpath)
         cur = conn.cursor()
-        getQuery = cur.execute('''SELECT masterPass FROM master WHERE id=1''').fetchone()
+        getQuery = cur.execute(
+            '''SELECT masterPass FROM master WHERE id=1''').fetchone()
         oldPass = str(" ".join(getQuery))
-        
+
         def submit():
             oldEnt = EntOldPass.get()
             newPass = EntNewPass.get()
             if oldEnt == oldPass:
-                cur.execute("UPDATE master SET masterPass=(?) WHERE id =1", (newPass,))
+                cur.execute("UPDATE master SET masterPass=(?) WHERE id =1",
+                            (newPass, ))
                 conn.commit()
                 updateMaster.destroy()
             else:
@@ -174,13 +198,6 @@ class mainWindow(Frame):
 
     def Login(self):
         '''Login Frame'''
-
-        imageFrame = Frame()
-        #imageFrame.pack(anchor="w")
-        background = ImageTk.PhotoImage(Image.open("forest.jpg"))
-        imgContainer = Label(imageFrame, image=background)
-        #imgContainer.pack(side=BOTTOM)
-
         loginFrame = Frame()
         loginFrame.pack(fill="none", expand=True)
         self.master.bind("<Return>", lambda e: checkUsr())
@@ -202,14 +219,17 @@ class mainWindow(Frame):
         def checkUsr():
             conn = sqlite3.connect(self.dbpath)
             cur = conn.cursor()
-            execMstrUser = cur.execute('''SELECT masterUser FROM master WHERE id=1''').fetchone()
-            execMstrPass = cur.execute('''SELECT masterPass FROM master WHERE id=1''').fetchone()
+            execMstrUser = cur.execute(
+                '''SELECT masterUser FROM master WHERE id=1''').fetchone()
+            execMstrPass = cur.execute(
+                '''SELECT masterPass FROM master WHERE id=1''').fetchone()
             masterLogin = str(" ".join(execMstrUser))
             masterPassword = str(" ".join(execMstrPass))
-            if usrEntry.get() == masterLogin and passEntry.get() == masterPassword :
-               self.mainFrame()
+            if usrEntry.get() == masterLogin and passEntry.get(
+            ) == masterPassword:
+                self.mainFrame()
             else:
-                messagebox.showerror('Error', r'Wrong Username or Password')  
+                messagebox.showerror('Error', r'Wrong Username or Password')
             sqlite3.connect(self.dbpath).close()
 
     def mainFrame(self):
@@ -245,28 +265,52 @@ class mainWindow(Frame):
         self.showRecord = '''SELECT id,name,username,desc,date_modified FROM digital_identity'''
 
         appColumn = ("ID", "Name", "Username", "Description", "Date Modified")
-        self.recordDB = ttk.Treeview(frame2, columns=appColumn, show='headings')
-        self.recordDB.heading('#1', text=appColumn[0], command=lambda: self.treeview_sort_column(self.recordDB, appColumn[0], False))
+        self.recordDB = ttk.Treeview(frame2,
+                                     columns=appColumn,
+                                     show='headings')
+        self.recordDB.heading('#1',
+                              text=appColumn[0],
+                              command=lambda: self.treeview_sort_column(
+                                  self.recordDB, appColumn[0], False))
         self.recordDB.column('#1', minwidth=0, width=5)
-        self.recordDB.heading('#2', text=appColumn[1], command=lambda: self.treeview_sort_column(self.recordDB, appColumn[1], False))
+        self.recordDB.heading('#2',
+                              text=appColumn[1],
+                              command=lambda: self.treeview_sort_column(
+                                  self.recordDB, appColumn[1], False))
         self.recordDB.column('#2', minwidth=0, width=40)
-        self.recordDB.heading('#3', text=appColumn[2], command=lambda: self.treeview_sort_column(self.recordDB, appColumn[2], False))
+        self.recordDB.heading('#3',
+                              text=appColumn[2],
+                              command=lambda: self.treeview_sort_column(
+                                  self.recordDB, appColumn[2], False))
         self.recordDB.column('#3', minwidth=0, width=110)
-        self.recordDB.heading('#4', text=appColumn[3], command=lambda: self.treeview_sort_column(self.recordDB, appColumn[3], False))
+        self.recordDB.heading('#4',
+                              text=appColumn[3],
+                              command=lambda: self.treeview_sort_column(
+                                  self.recordDB, appColumn[3], False))
         self.recordDB.column('#4', minwidth=0, width=55)
-        self.recordDB.heading('#5', text=appColumn[4], command=lambda: self.treeview_sort_column(self.recordDB, appColumn[4], False))
+        self.recordDB.heading('#5',
+                              text=appColumn[4],
+                              command=lambda: self.treeview_sort_column(
+                                  self.recordDB, appColumn[4], False))
         self.recordDB.column('#5', minwidth=0, width=110)
-        yscollbar = Scrollbar(frame2, orient=VERTICAL, command=self.recordDB.yview)
-        self.recordDB.pack(side=LEFT ,fill=BOTH, expand=True)
+        yscollbar = Scrollbar(frame2,
+                              orient=VERTICAL,
+                              command=self.recordDB.yview)
+        self.recordDB.pack(side=LEFT, fill=BOTH, expand=True)
         yscollbar.pack(side=LEFT, fill=Y)
-
 
         treeMenu = Menu(self.recordDB, tearoff=0)
         treeMenu.add_command(label="Show Password", command=self.show_password)
-        treeMenu.add_command(label="Edit login", command= self.update_data)
+        treeMenu.add_command(label="Edit login", command=self.update_data)
         treeMenu.add_separator()
-        treeMenu.add_command(label="Copy Username", command= self.get_username)
-        treeMenu.add_command(label="Copy Password", command= self.get_password)
+        treeMenu.add_command(
+            label="Copy Username",
+            command=lambda: self.get_login_data(
+                '''SELECT username FROM digital_identity WHERE id =(?)'''))
+        treeMenu.add_command(
+            label="Copy Password",
+            command=lambda: self.get_login_data(
+                '''SELECT password FROM digital_identity WHERE id =(?)'''))
 
         def treePelanggan_popup(event):
             try:
@@ -278,20 +322,13 @@ class mainWindow(Frame):
 
         self.showTable(self.showRecord, self.recordDB)
 
-    def get_username(self):
+    def get_login_data(self, query):
         treeCursor = self.recordDB.selection()
-        getExstUsrnm = '''SELECT username FROM digital_identity WHERE id =(?)'''
-        execExstUsrnm = self.cur.execute(getExstUsrnm, [self.recordDB.set(treeCursor, '#1')]).fetchone()
+        getQuery = query
+        execQuery = self.cur.execute(
+            getQuery, [self.recordDB.set(treeCursor, '#1')]).fetchone()
         self.master.clipboard_clear()
-        self.master.clipboard_append(" ".join(execExstUsrnm))
-
-    def get_password(self):
-        treeCursor = self.recordDB.selection()
-        getPassword = '''SELECT password FROM digital_identity WHERE id =(?)'''
-        execPassword = self.cur.execute(getPassword, [self.recordDB.set(treeCursor, '#1')]).fetchone()
-        self.master.clipboard_clear()
-        self.master.clipboard_append(" ".join(execPassword))
-
+        self.master.clipboard_append(" ".join(execQuery))
 
     def show_password(self):
         try:
@@ -302,14 +339,20 @@ class mainWindow(Frame):
 
             treeCursor = self.recordDB.selection()
 
-            execPass = self.cur.execute("SELECT password FROM digital_identity WHERE id =(?)", [self.recordDB.set(treeCursor, '#1')]).fetchone()
+            execPass = self.cur.execute(
+                "SELECT password FROM digital_identity WHERE id =(?)",
+                [self.recordDB.set(treeCursor, '#1')]).fetchone()
             password = StringVar(showPass)
             password.set(" ".join(execPass))
 
             frame1 = Frame(showPass)
             frame1.pack(fill="none", expand=True)
 
-            lblPass = Label(frame1, width=22, textvariable=password, underline=True, font=("Helvetica", 16))
+            lblPass = Label(frame1,
+                            width=22,
+                            textvariable=password,
+                            underline=True,
+                            font=("Helvetica", 16))
             lblPass.pack()
 
             frame2 = Frame(showPass)
@@ -323,8 +366,10 @@ class mainWindow(Frame):
 
         except TypeError:
             showPass.destroy()
-            messagebox.showwarning('Warning', 'No data selected', icon='warning')
-    
+            messagebox.showwarning('Warning',
+                                   'No data selected',
+                                   icon='warning')
+
     def menuBar(self):
         self.menubar = tk.Menu()
         self.master.configure(menu=self.menubar)
@@ -332,9 +377,12 @@ class mainWindow(Frame):
         # File menu
         fileMenu = tk.Menu(self.menubar)
         self.menubar.add_cascade(label="File", menu=fileMenu)
-        fileMenu.add_command(label="Add Login Information", command=self.add_data)
+        fileMenu.add_command(label="Add Login Information",
+                             command=self.add_data)
         fileMenu.add_separator()
-        fileMenu.add_command(label="Refresh", command=lambda :self.showTable(self.showRecord, self.recordDB))
+        fileMenu.add_command(
+            label="Refresh",
+            command=lambda: self.showTable(self.showRecord, self.recordDB))
         fileMenu.add_separator()
         fileMenu.add_command(label="Exit", command=self.master.destroy)
 
@@ -343,16 +391,23 @@ class mainWindow(Frame):
         self.menubar.add_cascade(label="Edit", menu=editMenu)
         editMenu.add_command(label="Edit Data", command=self.update_data)
         editMenu.add_separator()
-        editMenu.add_command(label="Copy Username", command=self.get_username)
-        editMenu.add_command(label="Copy Password", command=self.get_password)
-        editMenu.add_command(label="Change Master Password", command=self.update_master)
+        editMenu.add_command(
+            label="Copy Username",
+            command=lambda: self.get_login_data(
+                '''SELECT username FROM digital_identity WHERE id =(?)'''))
+        editMenu.add_command(
+            label="Copy Password",
+            command=lambda: self.get_login_data(
+                '''SELECT password FROM digital_identity WHERE id =(?)'''))
+        editMenu.add_command(label="Change Master Password",
+                             command=self.update_master)
 
         # View menu
         helpMenu = tk.Menu(self.menubar)
         self.menubar.add_cascade(label="Help", menu=helpMenu)
         helpMenu.add_command(label="Help")
         helpMenu.add_command(label="About", command=self.about_app)
-        
+
     def showTable(self, query, treeName):
         for i in treeName.get_children():
             treeName.delete(i)
@@ -360,7 +415,7 @@ class mainWindow(Frame):
         rows = self.cur.fetchall()
         for row in rows:
             treeName.insert("", END, values=row)
-    
+
     def add_data(self):
         """ Window to add new data to the database """
         self.addData = Tk()
@@ -382,7 +437,7 @@ class mainWindow(Frame):
         lblUsrnm.pack(side=LEFT, padx=5, pady=5)
         self.inpUsrnm = Entry(addFrame2, width=22)
         self.inpUsrnm.pack(side=LEFT, fill=X, padx=5)
-        
+
         addFrame3 = Frame(self.addData)
         addFrame3.pack(fill=X)
         lblPass = Label(addFrame3, text="Password", width=11)
@@ -406,7 +461,9 @@ class mainWindow(Frame):
 
         addFrame5 = Frame(self.addData)
         addFrame5.pack(anchor=S)
-        btnCancel = Button(addFrame5, text="Cancel", command=self.addData.destroy)
+        btnCancel = Button(addFrame5,
+                           text="Cancel",
+                           command=self.addData.destroy)
         btnCancel.pack(fill=X, padx=5, pady=5, side=LEFT)
         inpData = Button(addFrame5, text="Add", command=self.push_data)
         inpData.pack(fill=X, padx=5, pady=5, side=RIGHT)
@@ -414,7 +471,9 @@ class mainWindow(Frame):
     def push_data(self):
         addDate = str(datetime.today().strftime('%d-%m-%Y'))
         addQ = '''INSERT INTO digital_identity(name, username, password, desc, date_modified) VALUES (?,?,?,?,?)'''
-        self.cur.execute(addQ, (self.inpNm.get(), self.inpUsrnm.get(), self.inpPass.get(), self.inpDesc.get(), addDate))
+        self.cur.execute(addQ,
+                         (self.inpNm.get(), self.inpUsrnm.get(),
+                          self.inpPass.get(), self.inpDesc.get(), addDate))
         self.conn.commit()
         self.showTable(self.showRecord, self.recordDB)
         self.addData.destroy()
@@ -433,7 +492,9 @@ class mainWindow(Frame):
             addFrame1.pack(fill=X)
             lblNm = Label(addFrame1, text="Name", width=11)
             lblNm.pack(side=LEFT, padx=5, pady=5)
-            execExstNm = self.cur.execute("SELECT name FROM digital_identity WHERE id =(?)", [self.recordDB.set(treeCursor, '#1')]).fetchone()
+            execExstNm = self.cur.execute(
+                "SELECT name FROM digital_identity WHERE id =(?)",
+                [self.recordDB.set(treeCursor, '#1')]).fetchone()
             self.edtNm = Entry(addFrame1, width=22)
             self.edtNm.insert(0, " ".join(execExstNm))
             self.edtNm.pack(side=LEFT, fill=X, padx=5)
@@ -443,17 +504,20 @@ class mainWindow(Frame):
             lblUsrnm = Label(addFrame2, text="Username", width=11)
             lblUsrnm.pack(side=LEFT, padx=5, pady=5)
             getExstUsrnm = '''SELECT username FROM digital_identity WHERE id =(?)'''
-            execExstUsrnm = self.cur.execute(getExstUsrnm, [self.recordDB.set(treeCursor, '#1')]).fetchone()
+            execExstUsrnm = self.cur.execute(
+                getExstUsrnm,
+                [self.recordDB.set(treeCursor, '#1')]).fetchone()
             self.edtUsrnm = Entry(addFrame2, width=22)
             self.edtUsrnm.insert(0, " ".join(execExstUsrnm))
             self.edtUsrnm.pack(side=LEFT, fill=X, padx=5)
-        
+
             addFrame3 = Frame(self.updData)
             addFrame3.pack(fill=X)
             lblPass = Label(addFrame3, text="Password", width=11)
             lblPass.pack(side=LEFT, padx=5, pady=5)
             getExstPass = "SELECT password FROM digital_identity WHERE id=(?)"
-            execExstPass = self.cur.execute(getExstPass, [self.recordDB.set(treeCursor, '#1')]).fetchone()
+            execExstPass = self.cur.execute(
+                getExstPass, [self.recordDB.set(treeCursor, '#1')]).fetchone()
             self.edtPass = Entry(addFrame3, width=16, show='*')
             self.edtPass.insert(0, " ".join(execExstPass))
             self.edtPass.pack(side=LEFT, fill=X, padx=5)
@@ -470,43 +534,61 @@ class mainWindow(Frame):
             lblDesc = Label(addFrame4, text="Description", width=11)
             lblDesc.pack(side=LEFT, padx=5, pady=5)
             getExstDesc = "SELECT desc FROM digital_identity WHERE id=(?)"
-            execExstDesc = self.cur.execute(getExstDesc, [self.recordDB.set(treeCursor, '#1')]).fetchone()
+            execExstDesc = self.cur.execute(
+                getExstDesc, [self.recordDB.set(treeCursor, '#1')]).fetchone()
             self.edtDesc = Entry(addFrame4, width=22)
             self.edtDesc.insert(0, " ".join(execExstDesc))
             self.edtDesc.pack(side=LEFT, fill=X, padx=5)
 
             addFrame5 = Frame(self.updData)
             addFrame5.pack(anchor=S)
-            btnCancel = Button(addFrame5, text="Cancel", command=self.updData.destroy)
+            btnCancel = Button(addFrame5,
+                               text="Cancel",
+                               command=self.updData.destroy)
             btnCancel.pack(fill=X, padx=5, pady=5, side=LEFT)
-            inpData = Button(addFrame5, text="Update", command=self.commit_update)
+            inpData = Button(addFrame5,
+                             text="Update",
+                             command=self.commit_update)
             inpData.pack(fill=X, padx=5, pady=5, side=RIGHT)
 
         except TypeError:
             self.updData.destroy()
-            messagebox.showwarning('Warning', 'No data selected', icon='warning')
+            messagebox.showwarning('Warning',
+                                   'No data selected',
+                                   icon='warning')
 
     def commit_update(self):
         treecursor = self.recordDB.selection()
         addDate = str(datetime.today().strftime('%d-%m-%Y'))
         updQ = '''UPDATE digital_identity SET name=(?), username=(?), password=(?), desc=(?), date_modified=(?) WHERE id =(?)'''
-        self.cur.execute(updQ, (self.edtNm.get(), self.edtUsrnm.get(), self.edtPass.get(), self.edtDesc.get(), addDate, self.recordDB.set(treecursor, '#1'),))
+        self.cur.execute(updQ, (
+            self.edtNm.get(),
+            self.edtUsrnm.get(),
+            self.edtPass.get(),
+            self.edtDesc.get(),
+            addDate,
+            self.recordDB.set(treecursor, '#1'),
+        ))
         self.conn.commit()
         self.showTable(self.showRecord, self.recordDB)
         self.updData.destroy()
 
     def del_data(self):
-        delMsgBox = messagebox.askquestion('Delete Data', 'Are you sure you want to delete this data?')
+        delMsgBox = messagebox.askquestion(
+            'Delete Data', 'Are you sure you want to delete this data?')
         if delMsgBox == 'yes':
             for selected_item in self.recordDB.selection():
-                self.cur.execute("DELETE FROM digital_identity WHERE id=?", (self.recordDB.set(selected_item, '#1'),))
+                self.cur.execute("DELETE FROM digital_identity WHERE id=?",
+                                 (self.recordDB.set(selected_item, '#1'), ))
                 self.conn.commit()
                 self.recordDB.delete(selected_item)
-    
+
     def data_finder(self):
         finder = self.inpFinder.get()
-        fndQuery = ("SELECT id, name, username, desc, date_modified FROM digital_identity WHERE INSTR(name, (?))>0")
-        self.cur.execute(fndQuery, (finder,))
+        fndQuery = (
+            "SELECT id, name, username, desc, date_modified FROM digital_identity WHERE INSTR(name, (?))>0"
+        )
+        self.cur.execute(fndQuery, (finder, ))
         rows = self.cur.fetchall()
         for data in self.recordDB.get_children():
             self.recordDB.delete(data)
@@ -520,10 +602,9 @@ class mainWindow(Frame):
         about.resizable(False, False)
         about.bind("<Return>", lambda e: about.destroy())
 
-        aboutText = (r'Personal Password Manager',
-                     r'v 0.91',
-                      r'Create By : Dicky Setiawan',
-                      r'Github : github.com/ZekeElvenly')
+        aboutText = (r'Personal Password Manager', r'v 0.91',
+                     r'Create By : Dicky Setiawan',
+                     r'Github : github.com/ZekeElvenly')
         aboutRow1 = Label(about, text=aboutText[0])
         aboutRow1.pack(side=TOP)
         aboutRow2 = Label(about, text=aboutText[1])
@@ -536,14 +617,15 @@ class mainWindow(Frame):
         aboutClose = Button(about, text="OK", command=about.destroy)
         aboutClose.pack(fill=X, padx=10, pady=10, side=BOTTOM)
 
+
 class CreateToolTip(object):
     """
     create a tooltip for a given widget.
     Again, thx for someone on stack overflow
     """
     def __init__(self, widget, text='widget info'):
-        self.waittime = 200     #miliseconds
-        self.wraplength = 180   #pixels
+        self.waittime = 200  #miliseconds
+        self.wraplength = 180  #pixels
         self.widget = widget
         self.text = text
         self.widget.bind("<Enter>", self.enter)
@@ -579,20 +661,26 @@ class CreateToolTip(object):
         # Leaves only the label and removes the app window
         self.tw.wm_overrideredirect(True)
         self.tw.wm_geometry("+%d+%d" % (x, y))
-        label = tk.Label(self.tw, text=self.text, justify='left',
-                       background="#ffffff", relief='solid', borderwidth=1,
-                       wraplength = self.wraplength)
+        label = tk.Label(self.tw,
+                         text=self.text,
+                         justify='left',
+                         background="#ffffff",
+                         relief='solid',
+                         borderwidth=1,
+                         wraplength=self.wraplength)
         label.pack(ipadx=1)
 
     def hidetip(self):
         tw = self.tw
-        self.tw= None
+        self.tw = None
         if tw:
             tw.destroy()
-        
+
+
 def mainUI():
     appWin = mainWindow()
     appWin.mainloop()
+
 
 if __name__ == "__main__":
     mainUI()
